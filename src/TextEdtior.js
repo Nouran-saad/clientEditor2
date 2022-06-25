@@ -3,7 +3,7 @@ that allows multiple users to edit at the same time without overwriting any chan
 // here is all the code for our text editor component
 // Q- Quill isn't a react component so we need to do some work
 import React, { useEffect,useCallback,useState } from 'react'
-import NetInfo from "@react-native-community/netinfo";
+
 import Quill from "quill"
 import "quill/dist/quill.snow.css" // stylesheet
 import {io} from 'socket.io-client' // to allow connections 
@@ -75,14 +75,6 @@ useEffect to handle this connection*/
 
 
 
-  NetInfo.isConnected.fetch().then(isConnected => {
-    console.log('First, is ' + (isConnected ? 'online' : 'offline'));
-    if(isConnected==='offline'){
-      alert(
-        `Your internet connection failed`
-      );
-    }
-  });
 
  //-------------------updating our document---------------------
     useEffect(()=> {
